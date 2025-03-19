@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const socket = io("https://chat-app-chi-self-51.vercel.app"); // Replace localhost with Vercel URL
+const socket = io("wss://chat-app-chi-self-51.vercel.app/socket.io");  // Explicitly set the path
 
 
 export const listenForMessages = (callback) => {
