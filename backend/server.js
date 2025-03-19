@@ -9,12 +9,14 @@ const server = http.createServer(app);
 // Allow cross-origin requests
 app.use(cors());
 
-const io = require('socket.io')(server, {
-    cors: {
-      origin: "https://chat-app-chi-self-51.vercel.app",  // Your deployed frontend URL
-      methods: ["GET", "POST"]
-    }
-  });  
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "https://chat-app-chi-self-51.vercel.app",
+    methods: ["GET", "POST"]
+  },
+  path: "/socket.io"  // Explicitly set the path
+});
+ 
 
 io.on("connection", (socket) => {
     console.log(`User connected: ${socket.id}`);
